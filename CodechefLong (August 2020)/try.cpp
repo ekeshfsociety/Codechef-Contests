@@ -2,6 +2,8 @@
 
 using namespace std;
 
+vector<char> funct(vector<char> a , vector<char> b);
+
 int main()
 {
     int t;
@@ -12,8 +14,11 @@ int main()
         string s, p;
         cin >> s >> p;
 
-        vector<char> string1{};
-        vector<char> string2{};
+        vector<char> string1 ;
+        vector<char> string2 ;
+
+        string1.empty();
+        string2.empty();
 
         for (auto num1 : s)
         {
@@ -25,7 +30,25 @@ int main()
             string2.push_back(num2);
         }
 
-        int i{}, j{};
+        string1 = funct(string1 , string2) ;
+
+        int x = 0;
+        int y = 0;
+
+        for (auto x : string1) cout << x ;
+        cout << endl ;
+
+        for(auto y : string2) cout << y ;
+        cout << endl ;
+    }
+
+    return 0;
+}
+
+
+vector<char> funct (vector<char> string1 , vector<char> string2)
+{
+        int i = 0;
 
         for (auto num3 : string2)
         {
@@ -47,29 +70,6 @@ int main()
 
         sort(string1.begin(), string1.end());
 
-        i = 0;
+        return string1 ;
 
-        for (auto x : string2)
-        {
-            for (auto y : string1)
-            {
-                while (y <= x)
-                {
-                    cout << y;
-                    i++;
-                    continue;
-                }
-            }
-        }
-
-        for (auto x : string2)
-            cout << x;
-
-        for (int i; i < string1.size(); i++)
-        {
-            cout << string1.at(i);
-        }
-    }
-
-    return 0;
 }
