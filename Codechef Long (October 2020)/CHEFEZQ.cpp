@@ -9,21 +9,44 @@ int main()
 
     while(t--)
     {
-        int n , k ;
+        long long int n , k ;
         cin >> n >> k ;
 
-        int arr[n] ;
-        for(int i=0 ; i<n ; i++)
+        long long int arr[n] ;
+        
+        long long int i = 0;
+        
+        for(i=0 ; i<n ; i++)
         {
             cin >> arr[i] ; 
         }
 
-        for(int i=0 ; i<n ; i++)
+        long long int result {} ;
+        long long int flag = 0 ;
+
+        for(i=0 ; i<n ; i++)
         {
-            if(i == 0)
+            if(arr[i] < k)
             {
-                // abhi complete karna hai
+                result = i+1 ;
+                flag = 1 ;
+                break ;
             }
+            
+            arr[i+1] += (arr[i] - k);
+            
         }
+        if(flag)
+        {
+            cout << result << endl ;
+        }
+        else
+        {
+            result = n +(arr[n-1] / k);
+            cout << result << endl ;
+        }
+        
     }
+
+    return 0 ;
 }
